@@ -1,6 +1,7 @@
 # Reinforcement learning:
 	Learn what action to take in a state(policy) through reward function.  
-## Main Charactersistics:
+
+## Main Charactersistics:  
 1. Trial and error search
 2. Delayed rewards
 
@@ -115,8 +116,24 @@ The plot below shows the cumulative mean for 100000 trials.
 1. Instead of assigning the initial estimate of mean to be zero, assign a value higher than the normal value.
 2. And perform only the greedy selection.
 3. So, once a particular arm is selected, the estimated mean will go down as the actual mean is much lower than the optimistic one. So, in the next step, other arms are chosen as their mean is still high.  
-4. This method gives a better estimation as it executes all the actions several times in the initial stages itself.
+4. This method gives a better estimation as it executes all the actions several times in the initial stages itself. This is how explore-exploitation is achieved in this.
 5. The image below shows the action selection when mean is set high(10) but the actual mean of the three arms are 1,2,3 respectively.
 6. The arrow mark shows the arm which is selected.
 
 ![OIV](Images/OIV_exploration.jpg "Optimistic Initial values") 
+
+## Implementation
+``` python
+    for i in range(trials):
+        j=np.argmax([b.mean for b in bandit])
+        x=bandit[j].pull()
+        bandit[j].update(x)
+        data[i]=x
+```
+## Explanation:  
+Always choose the best action(greedy)
+
+## Comparison:
+
+
+![epsvsOIV](Images/eps_vs_oiv.png "Epsilon_greedy vs Optimistic Initial Values")
