@@ -135,5 +135,52 @@ Always choose the best action(greedy)
 
 ## Comparison:
 
+![epsvsOIV](Images/eps__vs_oiv.png "Epsilon_greedy vs Optimistic Initial Values")
 
-![epsvsOIV](Images/eps_vs_oiv.png "Epsilon_greedy vs Optimistic Initial Values")
+## Explanation:  
+1. You can see that that OIV performs better than epsilon greedy.
+2. I have plotted for 2 different optimistic mean(5 and 10). 
+3. So, if the number of trials are large enough, both of them converges. So, only criteria is that the mean should be optimistic(more than actual0
+
+### Upper Confidence bound:  
+1. The confidence of the estimate from 10 samples will be much lesser than confidence of estimate from 100 samples.
+2. Key: The confidence exponentially increases with number of trials.
+
+![UCB_Formula](Images/UCB_formula.png "UCB")
+
+3. So, the confidence is a ratio between, total number of trials(N) and number of times that particular arm(Nj) is chosen.
+4. If Nj is smaller , the ratio will be more, so, this arm will be chosen to estimate the correct value of it.
+5. Eventually, when all the arms are played enough number of times, the ratio shrinks(Because numerator is log and denominator is normal) and will becomes a normal greedy strategy.
+6. This ratio should added to mean and then the arm should be chosen based on the resulting value.
+
+## Implementation:  
+
+``` python
+def run_experiment_ucb(bandit,trials):
+    # Function to simulate the experiment
+    data=np.empty(trials)
+
+    # Epsilon greedy implememtation
+    for i in range(trials):
+        # Generate a random number between 0 and 1
+        j=np.argmax([b.mean+np.sqrt(2.0*(np.log(i+1))/(b.N+0.01)) for b in bandit])
+        x=bandit[j].pull()
+        bandit[j].update(x)
+        data[i]=x
+
+    # Calculate the cumulative average
+    cum_avg=np.cumsum(data)/(np.arange(trials)+1)
+
+    return cum_avg
+
+```
+## Comparison:
+
+![UCB](Images/ucb.png "UCBvsOIVvsEPS")
+
+## Explanation:
+
+From the plot, you can see that it out performs epsilon greedy but almost the same as OIV>
+
+
+
