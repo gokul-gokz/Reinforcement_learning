@@ -34,4 +34,4 @@ Evolutionary vs learning from value function:
 ## Multi arm bandit problem:
 __ Given a slot machine with n arms and each arm has its own probablity distribution of success. Pulling any one of it will give a stochastic reward. The objective is to collect maximum reward in the long run. __
 
-![Bandit](images/Multi-armed-bandit.jpg "Multi_arm_bandit")
+![Bandit](Images/Multi-armed-bandit.jpg "Multi_arm_bandit")
