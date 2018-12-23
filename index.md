@@ -57,5 +57,28 @@ Number of trials = 100 epsilon = 10
 Then it means that , choose the best arm(exploit) 90% of times and randomly choose the arm(10%) of times.  
 So, for each arm mean of rewards should be calculated at each instance.  
 **Shortcut**:  
-*Instead of storing all the rewards, calculate the mean each and every time and store in a variable. Using that, mean can be calculated easily.
+* Instead of storing all the rewards, calculate the mean each and every time and store in a variable. Using that, mean can be calculated easily.  
+
 ![Mean](Images/mean.png "Estimating mean")
+
+## Python implementation
+''' python
+"""Bandit class models the functionality of bandit. It has 2 methods pull and update """
+class Bandit:
+    # Initialize the variables
+    def __init__(self,v):
+        self.value=v
+        self.mean=0
+        self.N=0
+
+    def pull(self):
+        # Returns the value which is a gaussian with unit variance
+        return np.random.randn()+self.value
+
+    def update(self, x):
+        # Calculate the new mean based on the previous estimates 
+        self.N+=1
+        self.mean=((((self.N-1.0)/self.N)*self.mean)+1.0 / self.N * x)
+'''
+
+
