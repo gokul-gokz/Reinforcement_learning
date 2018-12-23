@@ -101,11 +101,22 @@ class Bandit:
 2. Then pull the arm and update the estimates.
 
 ### Comparison of different epsilons:  
+In this experiment , I have created a bandit with three different arms having rewards as 1, 2, 3.  
 The plot below shows the cumulative mean for 100000 trials.  
 
 ![Comparing epsilons](Images/comparing_eps.png "Comparing epsilons")  
 
 #### Explanation
-1. For eps = 0.1 -> 90% of time choose the best action(exploit) and 10 % explore. Good strategy
+1. For eps = 0.1 -> 90% of time choose the best action(exploit) and 10 % explore. Eventhogh it takes time to estimate the best action. It gives good rewards long run.
 2. For eps = 0.5 -> 50% exploit and 50 %explore. So, not able to maximize the rewards completely as half of the time, does exploration.
 3. For eps = 0.8 -> 20% exploit and 80 %explore. Not the best strategy.
+
+### Optimistic initial values:  
+1. Instead of assigning the initial estimate of mean to be zero, assign a value higher than the normal value.
+2. And perform only the greedy selection.
+3. So, once a particular arm is selected, the estimated mean will go down as the actual mean is much lower than the optimistic one. So, in the next step, other arms are chosen as their mean is still high.  
+4. This method gives a better estimation as it executes all the actions several times in the initial stages itself.
+5. The image below shows the action selection when mean is set high(10) but the actual mean of the three arms are 1,2,3 respectively.
+6. The arrow mark shows the arm which is selected.
+
+![OIV](Images/OIV_exploration.jpg "Optimistic Initial values") 
