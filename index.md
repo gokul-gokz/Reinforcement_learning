@@ -83,7 +83,7 @@ class Bandit:
 ```
 
 ### Epsilon greedy implementation  
-''' python
+``` python
     for i in range(trials):
         # Generate a random number between 0 and 1
         choice=np.random.random()
@@ -94,7 +94,7 @@ class Bandit:
             j=np.argmax([b.mean for b in bandit])
         x=bandit[j].pull()
         bandit[j].update(x)
-'''
+```
 
 ### Explanation:
 1. If the choice is less than epsilon , choose an arm in random(explore) whereas if the choice is less than epsilon, choose the arm which has the current best estimate for reward. 
