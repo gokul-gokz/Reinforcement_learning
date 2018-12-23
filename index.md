@@ -1,10 +1,10 @@
 # Reinforcement learning:
 	Learn what action to take in a state(policy) through reward function.
-##Main Charactersistics:
+## Main Charactersistics:
 1.Trial and error search
 2.Delayed rewards
 
-##How is it different from other ML algorithms?
+## How is it different from other ML algorithms?
 Key difference:
 	1. Explore and exploitation
 	2. Learn at the same time maximize rewards
@@ -20,7 +20,7 @@ Evolutionary vs learning from value function:
 	Evolutionary: Rewards are given only at the end of the step.
 	Value functions: Learns from each step.
 
-##Components of RL:
+## Components of RL:
 **Policy**: What action to take in state.
 **Rewards**: Response which the system gets for performing a action on a state(intrinsic desirablity of a state)
 **Value function**: Long term desirablity of states (total reward accumulated over future from start to goal) actions are chosen which maximizes the value and not the immediate rewards.
