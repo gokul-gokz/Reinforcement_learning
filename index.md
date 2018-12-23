@@ -1,29 +1,29 @@
 # Reinforcement learning:
-	Learn what action to take in a state(policy) through reward function.
+	Learn what action to take in a state(policy) through reward function.  
 ## Main Charactersistics:
-1.Trial and error search
-2.Delayed rewards
+1. Trial and error search
+2. Delayed rewards
 
 ## How is it different from other ML algorithms?
 
 Key difference:
 
-	1. Explore and exploitation.<br/>
+	1. Explore and exploitation.  
 	2. Learn at the same time maximize rewards
 	
 Supervised Learning:
 
-	1.Learning from trained examples provided by a supervisor. Classify/extraoplate.  
-	2.But in learning from interaction(RL), impossible to know all possible situation/representation.  
+	1. Learning from trained examples provided by a supervisor. Classify/extraoplate.  
+	2. But in learning from interaction(RL), impossible to know all possible situation/representation.  
 
 Unsupervised Learning:<br/>
 	
-	1.Finds patterns in the problem whereas RL learns howto maximize rewards.
+	1. Finds patterns in the problem whereas RL learns howto maximize rewards.
 
 Evolutionary vs learning from value function:
 	  
-	1.Evolutionary: Rewards are given only at the end of the step.  
-	2.Value functions: Learns from each step.
+	1. Evolutionary: Rewards are given only at the end of the step.  
+	2. Value functions: Learns from each step.
 
 ## Components of RL:
 **Policy**: What action to take in state.<br/>
@@ -61,7 +61,8 @@ So, for each arm mean of rewards should be calculated at each instance.
 
 ![Mean](Images/mean.png "Estimating mean")
 
-## Python implementation
+## Python implementation  
+### Bandit class
 ``` python
 """Bandit class models the functionality of bandit. It has 2 methods pull and update """
 class Bandit:
@@ -81,4 +82,20 @@ class Bandit:
         self.mean=((((self.N-1.0)/self.N)*self.mean)+1.0 / self.N * x)
 ```
 
+### Epsilon greedy implementation  
+'''python
+    for i in range(trials):
+        # Generate a random number between 0 and 1
+        choice=np.random.random()
 
+        if choice<eps:
+            j= np.random.choice(3)
+        else:
+            j=np.argmax([b.mean for b in bandit])
+        x=bandit[j].pull()
+        bandit[j].update(x)
+'''
+
+###Explanation:
+1. If the choice is less than epsilon , choose an arm in random(explore) whereas if the choice is less than epsilon, choose the arm which has the current best estimate for reward. 
+2. Then pull the arm and update the estimates.
