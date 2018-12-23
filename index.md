@@ -36,7 +36,7 @@ Evolutionary vs learning from value function:
 
 ![Bandit](Images/Multi-armed-bandit.jpg "Multi_arm_bandit")
 
-~~For Example~~:  
+<ins>For Example</ins>:  
 Consider a 3 arm bandit problem. When you are starting you dont know which one gives the maximum reward. So, you need to pull all of them atleast once to know the reward of it. 
 But the rewards are stochastic, so from one trial it's not possible to estimate the rewards.  
  
