@@ -96,6 +96,16 @@ class Bandit:
         bandit[j].update(x)
 ```
 
-### Explanation:
-1. If the choice is less than epsilon , choose an arm in random(explore) whereas if the choice is less than epsilon, choose the arm which has the current best estimate for reward. 
+#### Explanation:
+1. If the choice is less than epsilon , choose an arm in random(explore) whereas if the choice is greater than epsilon, choose the arm which has the current best estimate for reward(exploit). 
 2. Then pull the arm and update the estimates.
+
+### Comparison of different epsilons:  
+The plot below shows the cumulative mean for 100000 trials.  
+
+![Comparing epsilons](Images/comparing_eps.png "Comparing epsilons")  
+
+#### Explanation
+1. For eps = 0.1 -> 90% of time choose the best action(exploit) and 10 % explore. Good strategy
+2. For eps = 0.5 -> 50% exploit and 50 %explore. So, not able to maximize the rewards completely as half of the time, does exploration.
+3. For eps = 0.8 -> 20% exploit and 80 %explore. Not the best strategy.
