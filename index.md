@@ -62,7 +62,7 @@ So, for each arm mean of rewards should be calculated at each instance.
 ![Mean](Images/mean.png "Estimating mean")
 
 ## Python implementation
-''' python
+``` python
 """Bandit class models the functionality of bandit. It has 2 methods pull and update """
 class Bandit:
     # Initialize the variables
@@ -79,6 +79,6 @@ class Bandit:
         # Calculate the new mean based on the previous estimates 
         self.N+=1
         self.mean=((((self.N-1.0)/self.N)*self.mean)+1.0 / self.N * x)
-'''
+```
 
 
