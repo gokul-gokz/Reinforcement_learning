@@ -15,13 +15,15 @@ Supervised Learning:
 
 	1.Learning from trained examples provided by a supervisor. Classify/extraoplate.  
 	2.But in learning from interaction(RL), impossible to know all possible situation/representation.  
-	
+
 Unsupervised Learning:<br/>
+	
 	1.Finds patterns in the problem whereas RL learns howto maximize rewards.
 
-Evolutionary vs learning from value function:  
-	Evolutionary: Rewards are given only at the end of the step.  
-	Value functions: Learns from each step.
+Evolutionary vs learning from value function:
+	  
+	1.Evolutionary: Rewards are given only at the end of the step.  
+	2.Value functions: Learns from each step.
 
 ## Components of RL:
 **Policy**: What action to take in state.<br/>
@@ -29,6 +31,6 @@ Evolutionary vs learning from value function:
 **Value function**: Long term desirablity of states (total reward accumulated over future from start to goal) actions are chosen which maximizes the value and not the immediate rewards.<br/>
 **Model**:Based on the action performed on the current state, resultant states will be predicted.<br/>
 
-##Multi arm bandit problem:
-__Given a slot machine with n arms and each arm has its own probablity distribution of success. Pulling any one of it will give a stochastic reward. The objective is to collect maximum reward in the long run.__
+## Multi arm bandit problem:
+__ Given a slot machine with n arms and each arm has its own probablity distribution of success. Pulling any one of it will give a stochastic reward. The objective is to collect maximum reward in the long run. __
 
