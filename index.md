@@ -43,15 +43,19 @@ But the rewards are stochastic, so from one trial it's not possible to estimate 
 <ins>**Traditional method of solving**</ins>:
 Pull all the arms to a fixed number of times and get an statistical inference.  
 <ins>**Problems**</ins>:  
-How to determine the number of times to pull?  
-Keeping the n-high will result in less rewards in long run because we would have pulled the arms with less rewards and high rewards equally for most of the times. Not the best strategy.  
-Keeping the n-low , estimation might go wrong.
+*How to determine the number of times to pull?  
+*Keeping the n-high will result in less rewards in long run because we would have pulled the arms with less rewards and high rewards equally for most of the times. Not the best strategy.  
+*Keeping the n-low , estimation might go wrong.
 
 <ins>**RL Strategies**</ins>:  
 **Epsilon greedy**:  
 
 * In this strategy , we will choose the best arm(exploit) based on the (mean of rewards) for most of the times, but at the same times we also randomly choose other arms to (explore) the possibilities.  
-* When to explore and when to exploit is decided by the epsilon value. 
-Example:
-Number of trials = 100 epsilon = 10  
-Then it means that , choose the best arm(exploit) 90% of times and randomly choose the arm(10%) of times.
+* When to explore and when to exploit is decided by the epsilon value.  
+Example:  
+Number of trials = 100 epsilon = 10    
+Then it means that , choose the best arm(exploit) 90% of times and randomly choose the arm(10%) of times.  
+So, for each arm mean of rewards should be calculated at each instance.  
+**Shortcut**:  
+
+Instead of storing all the rewards, calculate the mean each and every time and store in a variable. Using that, mean can be calculated each every turn easily.
