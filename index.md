@@ -88,7 +88,7 @@ class Bandit:
         # Generate a random number between 0 and 1
         choice=np.random.random()
 
-        if choice<eps:
+        if choice<eps: 
             j= np.random.choice(3)
         else:
             j=np.argmax([b.mean for b in bandit])
