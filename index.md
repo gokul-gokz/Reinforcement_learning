@@ -180,7 +180,14 @@ def run_experiment_ucb(bandit,trials):
 
 ## Explanation:
 
-From the plot, you can see that it out performs epsilon greedy but almost the same as OIV>
+From the plot, you can see that it out performs epsilon greedy but almost the same as OIV.
 
+## How to make the epsilon greedy work better?  
+1. We need to explore more in the beginning and eventually we should decrease, as we will be getting closer to the true estimate. So, epsilon is inversely proportional to number of trials.
+2. So make epsilon = 1/N.
+
+## Comparison:
+
+![Final](Images/Final_comp.png "UCBvsOIVvsEPS(1/N)")
 
 
