@@ -191,3 +191,47 @@ From the plot, you can see that it out performs epsilon greedy but almost the sa
 ![Final](Images/Final_comp.png "UCBvsOIVvsEPS(1/N)")
 
 
+## Non stationary bandits:
+1. Stationary - Statistics constant(Ex:Mean)
+2. Weak sense stationary - Only mean and autocovariance constant
+3. Strong sense sttionary - entire probablity distribution function remains constant
+4. What if the PDF of our bandit changes(non-stationary). How to address this?
+
+** Normal mean update: **
+![UCB](Images/ucb.png "UCBvsOIVvsEPS")
+
+** Rearrange: **
+![UCB](Images/ucb.png "UCBvsOIVvsEPS")
+
+** Replace 1/t with learning rate alpha**
+![UCB](Images/ucb.png "UCBvsOIVvsEPS")
+
+** Low pass filter **
+![LPF](Images/low_pass_filter.png "low_pass_filter")
+## Explanation:
+* This is similar to low pass filter formula. Giving more emphasis on the current estimate and less for the past ones.
+
+** Remove Recurrence **
+![REC](Images/without_recurrence.png "Remove_recurrence_relation")
+
+
+### Doubts:Revisit the section
+
+
+## New Components in the system:
+** Episodes: ** One complete run of the game
+** Terminal state: ** It's a state from which you cann't take anymore action , end of the episode.
+
+## Deeper look into rewards:  
+** Maze solving game **
+1. Assign zero as reward for each step and 1 when it finds the exit.
+2. Assign -1 as reward for each step and 1 whne it finds the exit.  
+** Which is better? **  
+The method 2 is better because each step is going to reduce the total reward. So, it will try to find the solution in minimum steps.  
+But in method 1, taking a step is not going to affect the maximum reward, so it won,t result in an optimized strategy.
+3. Don't bias the agent. The agent should learn the strategy on its own from the environment.  
+4. * Say the agent what to achieve but not how to achieve it *
+
+** Credit assignment problem **  
+For example: If you have an exam tommorrow and you are preparing for it and then you perform well in the exam. But which action helped you to perform well in the exam. How will you assign reward/credit to it. It's very hard.
+* RL way: Instead of considering a single action, entire sequence of action is considered.
