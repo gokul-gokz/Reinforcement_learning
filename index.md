@@ -197,10 +197,10 @@ From the plot, you can see that it out performs epsilon greedy but almost the sa
 3. Strong sense sttionary - entire probablity distribution function remains constant
 4. What if the PDF of our bandit changes(non-stationary). How to address this?
 
-** Normal mean update: **
+** Normal mean update:**
 ![UCB](Images/ucb.png "UCBvsOIVvsEPS")
 
-** Rearrange: **
+** Rearrange:**
 ![UCB](Images/ucb.png "UCBvsOIVvsEPS")
 
 ** Replace 1/t with learning rate alpha**
@@ -211,7 +211,7 @@ From the plot, you can see that it out performs epsilon greedy but almost the sa
 ## Explanation:
 * This is similar to low pass filter formula. Giving more emphasis on the current estimate and less for the past ones.
 
-** Remove Recurrence **
+**Remove Recurrence**
 ![REC](Images/without_recurrence.png "Remove_recurrence_relation")
 
 
@@ -219,19 +219,32 @@ From the plot, you can see that it out performs epsilon greedy but almost the sa
 
 
 ## New Components in the system:
-** Episodes: ** One complete run of the game
-** Terminal state: ** It's a state from which you cann't take anymore action , end of the episode.
+**Episodes:** One complete run of the game
+**Terminal state:** It's a state from which you cann't take anymore action , end of the episode.
 
 ## Deeper look into rewards:  
-** Maze solving game **
+**Maze solving game**
 1. Assign zero as reward for each step and 1 when it finds the exit.
 2. Assign -1 as reward for each step and 1 whne it finds the exit.  
-** Which is better? **  
+**Which is better?**  
 The method 2 is better because each step is going to reduce the total reward. So, it will try to find the solution in minimum steps.  
 But in method 1, taking a step is not going to affect the maximum reward, so it won,t result in an optimized strategy.
 3. Don't bias the agent. The agent should learn the strategy on its own from the environment.  
-4. * Say the agent what to achieve but not how to achieve it *
+4. *Say the agent what to achieve but not how to achieve it*
 
-** Credit assignment problem **  
+**Credit assignment problem**  
 For example: If you have an exam tommorrow and you are preparing for it and then you perform well in the exam. But which action helped you to perform well in the exam. How will you assign reward/credit to it. It's very hard.
 * RL way: Instead of considering a single action, entire sequence of action is considered.
+
+## Value Functions:  
+What is the value of A whereas B and C are the terminal states in the figure below. 
+![Value](Images/value_fn.png "Value function")  
+Value of A = 0.5*1 +0.5*0 =0.5 .
+** Definition **: 
+* Value tells us how good being in the state is.
+* This is based on future rewards.
+
+## Rewards vs values:
+1. Rewards - immediate 
+2. Values - how good being in the state is
+3. In RL, actions are chosen based on values and not based on rewards.
